@@ -82,7 +82,8 @@ return [
     'failed' => [
         'driver' => env('QUEUE_FAILED_DRIVER', 'database'),
         'database' => env('DB_CONNECTION', 'mysql'),
-        'table' => 'failed_jobs',
+        // so both jobs and jobs_failed will be next to each other in db :-)
+        'table' => 'jobs_failed', 
     ],
 
 ];
