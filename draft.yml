@@ -1,0 +1,19 @@
+models:
+  HttpRequest:
+    request: text
+    response: text
+    url: string:1024
+    ip: string:25
+    headers: text
+    user_agent: string 
+    location: string nullable
+    deleted_at: timestamps 
+   
+controllers:
+  HttpRequest:
+    index:
+      query: all
+      render: http-requests.index
+      
+
+seeders: HttpRequest

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class DatabaseSeeder extends Seeder
 {
     protected $tables = [
+        'http_requests',
         'users'
     ];
 
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->truncateTables();
         
         $this->call(UsersTableSeeder::class);
+        $this->call(HttpRequestSeeder::class);
     }
 
 

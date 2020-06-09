@@ -72,9 +72,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" stywle="max-width: 4500px;">
             @yield('content')
-        </main>
+        </main> 
     </div>
 </body>
 </html>
