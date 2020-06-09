@@ -13,8 +13,10 @@ class HttpRequestController extends Controller
      */
     public function index(Request $request)
     {
-        $httpRequests = HttpRequest::paginate($request->pageSize ?? 50);
+        $httpRequests = HttpRequest::latest('id')->paginate($request->pageSize ?? 50);
 
         return view('http-requests.index', compact('httpRequests') );
     }
+
+
 }
