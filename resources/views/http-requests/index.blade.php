@@ -28,14 +28,17 @@
                                         <th scope="row">{{ $httpRequest->id }}</th>
 
                                         <td>
-                                            {{ $httpRequest->ip }} <br />
-                                            <sup title="{{ $httpRequest->created_at }}">{{ $httpRequest->created_at->format('M d Y, g:i A') }}</sup>
+                                            {{ $httpRequest->ip }} 
+
+                                            <?php $geoData = optional( json_decode($httpRequest->location) ); ?>
+                                            <br /> <sup>{{ $geoData->country }},  {{ $geoData->regionName }}. ISP: {{ $geoData->isp }}</sup> 
+                                            <br /><sup title="{{ $httpRequest->created_at }}">{{ $httpRequest->created_at->format('M d Y, g:i A') }}</sup>
                                         </td>
 
                                         <td>
                                             {{ $httpRequest->url }}
-                                            <br />
-                                            <sup>{{ $httpRequest->user_agent }}</sup>
+                                            <br /><sup>{{ $httpRequest->user_agent }}</sup>
+                                            <br /><sup>{{ $httpRequest->user_agent_explanation }}</sup>
                                         </td>  
                                     </tr>
 

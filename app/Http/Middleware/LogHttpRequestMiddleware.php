@@ -82,7 +82,7 @@ class LogHttpRequestMiddleware
     protected function getGeoLocationOfIP($ip)
     {
         return 
-        \Cache::remember('key', 6000, function () use ($ip) {
+        \Cache::remember("geo_location_{$ip}", 6000, function () use ($ip) {
             
             try { 
                 $geoLocation = file_get_contents("http://ip-api.com/json/$ip");  
