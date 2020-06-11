@@ -44,7 +44,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a href="/blog">Blog</a></li> &nbsp; | &nbsp; 
+                        <li><a href="/about">About</a></li> &nbsp; | &nbsp; 
+                        <li><a href="/team">Team</a></li> &nbsp; | &nbsp; 
+                        <li><a href="/services">Services</a></li> &nbsp; | &nbsp; 
+                        <li><a href="/leadership">Leadership</a></li> &nbsp; | &nbsp; 
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

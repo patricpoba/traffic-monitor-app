@@ -54,7 +54,7 @@ class LogHttpRequestMiddleware
             return ;
         }
   
-        $location = $this->getGeoLocationOfIP('154.160.6.6'); //$request->ip()
+        $location = $this->getGeoLocationOfIP($request->ip());
 
         $data = [
             'user_agent'            => $request->headers->get('user-agent'),
