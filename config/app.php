@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Ip2location\IP2LocationLaravel\IP2LocationLaravelServiceProvider::class,
 
         /*
          * Application Service Providers...

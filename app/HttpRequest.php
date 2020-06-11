@@ -18,6 +18,7 @@ class HttpRequest extends Model
         'ip',
         'headers',
         'user_agent',
+        'user_agent_explanation',
         'location',
     ];
 

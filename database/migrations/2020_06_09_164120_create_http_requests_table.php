@@ -16,13 +16,14 @@ class CreateHttpRequestsTable extends Migration
         Schema::create('http_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('request');
-            $table->text('response')->nullable();
+            $table->longText('response')->nullable();
             $table->string('url', 1024);
             $table->string('referral_url', 1024)->nullable();
             $table->string('ip', 25);
             $table->text('headers')->nullable();
-            $table->string('user_agent');
-            $table->string('location')->nullable();
+            $table->text('user_agent');
+            $table->text('user_agent_explanation')->nullable();
+            $table->text('location')->nullable();
             $table->datetime('deleted_at')->nullable(); 
             $table->timestamps();
         });
