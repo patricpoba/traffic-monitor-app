@@ -13,9 +13,29 @@ class HttpRequestController extends Controller
      */
     public function index(Request $request)
     {
-        $httpRequests = HttpRequest::latest('id')->paginate($request->pageSize ?? 50);
+        $viewData['httpRequests'] = HttpRequest::latest('id')->paginate($request->pageSize ?? 50);
+        
+        if ($request->has('from_date') && $request->has('to_date')) {
+            
+            $request->merge([
+                'from'  => $request->from_date .' '. $request->from_time,
+                'to'    => $request->to_date   .' '. $request->to_time
+            ]);
+        
+            $viewData['uniqueIpsCount'] = HttpRequest::groupBy('ip')
+                ->whereBetween('created_at', [ $request->from, $request->to])
+                ->count();
 
-        return view('http-requests.index', compact('httpRequests') );
+            $viewData['urlVisistCount'] = HttpRequest::selectRaw('url, count(url) as url_visit_count')
+                ->whereBetween('created_at', [ $request->from, $request->to]) 
+                ->groupBy('url')
+                ->get();
+
+            $viewData['totalVisits'] = HttpRequest::whereBetween('created_at', [ $request->from, $request->to])
+                    ->count();
+        }
+ 
+        return view('http-requests.index', $viewData );
     }
 
 

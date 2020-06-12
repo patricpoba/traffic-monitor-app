@@ -4,7 +4,49 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card"> 
+
+            <div class="card">
+                <div class="card-body"> 
+                    <form method="GET">
+                        <div class="row">
+                            <div class="col">
+                                <input type="date" class="form-control" name="from_date" placeholder="from date" id="from_date" 
+                                    value="{{ request()->from_date ?? now()->format('Y-m-d') }}">
+
+                                <input type="time" class="form-control" name="from_time" placeholder="to date" 
+                                    value="{{ request()->from_time ?? now()->format('H:i') }}">
+                            </div>
+
+                            <div class="col">
+                                <input type="date" class="form-control" name="to_date" placeholder="to date" 
+                                    value="{{ request()->to_date ?? now()->format('Y-m-d') }}">
+
+                                <input type="time" class="form-control" name="to_time" placeholder="to date" 
+                                    value="{{ request()->to_time ?? now()->format('H:i') }}">
+                            </div>
+
+                            <div class="col">
+                                <input type="submit" class="btn btn-primary form-control" placeholder="Last name" value="filter">
+                            </div>    
+                            <div class="col">
+                                <a href="{{ request()->url() }}" class="btn btn-default"> reset</a>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    @if(isset($totalVisits) && isset($urlVisistCount) )
+                        <hr />
+                        <small>Total Visits: {{ $totalVisits }} Unique IPs : {{ $uniqueIpsCount }}</small>  <br />
+
+                        @foreach($urlVisistCount as $urlVisit)
+                            <small>{{ $urlVisit->url_visit_count }} visit @ {{ $urlVisit->url }} </small> <br />
+                        @endforeach 
+                    @endif
+                </div>
+            </div>
+
+            <div class="card mt-4"> 
 
                 <div class="card-body"> 
   
