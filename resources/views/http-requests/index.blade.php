@@ -78,9 +78,10 @@
                                         </td>
 
                                         <td>
-                                            {{ $httpRequest->url }}
+                                            {{ $httpRequest->url }} 
                                             <br /><sup>{{ $httpRequest->user_agent }}</sup>
                                             <br /><sup>{{ $httpRequest->user_agent_explanation }}</sup>
+                                            <sup class="text-danger">({{ $httpRequest->referral_url }})</sup>
                                         </td>  
                                     </tr>
 
