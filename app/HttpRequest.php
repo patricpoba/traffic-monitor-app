@@ -19,6 +19,7 @@ class HttpRequest extends Model
         'headers',
         'user_agent',
         'user_agent_explanation',
+        'referral_url',
         'location',
     ];
 
