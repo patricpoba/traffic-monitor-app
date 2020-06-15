@@ -56,7 +56,7 @@
                                 <tr>
                                     <th scope="col">#</th>
 
-                                    <th scope="col">IP</th>   
+                                    <th scope="" style="width: 25%">IP</th>   
                                     
                                     <th scope="col">DETAILS</th>   
 
@@ -73,15 +73,21 @@
                                             {{ $httpRequest->ip }} 
 
                                             <?php $geoData = optional( json_decode($httpRequest->location) ); ?>
-                                            <br /> <sup>{{ $geoData->country }},  {{ $geoData->regionName }}. ISP: {{ $geoData->isp }}</sup> 
+                                            
+                                            <br /> <sup>{{ $geoData->country }},  {{ $geoData->regionName }}.</sup> 
+                                            
+                                            <br /><sup>ISP: {{ $geoData->isp }}</sup> 
+
                                             <br /><sup title="{{ $httpRequest->created_at }}">{{ $httpRequest->created_at->format('M d Y, g:i A') }}</sup>
                                         </td>
 
                                         <td>
                                             {{ $httpRequest->url }} 
-                                            <br /><sup>{{ $httpRequest->user_agent }}</sup>
-                                            <br /><sup>{{ $httpRequest->user_agent_explanation }}</sup>
-                                            <sup class="text-danger">({{ $httpRequest->referral_url }})</sup>
+                                            <br /><sup>{{ $httpRequest->user_agent }} 
+                                                
+                                                - {{ $httpRequest->user_agent_explanation }}</sup>
+
+                                            <br/><sup class="text-danger">(Referer: {{ $httpRequest->referral_url }})</sup>
                                         </td>  
                                     </tr>
 
