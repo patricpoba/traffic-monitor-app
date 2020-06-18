@@ -13,7 +13,7 @@ class HttpRequestController extends Controller
      */
     public function index(Request $request)
     {
-        $viewData['httpRequests'] = HttpRequest::latest('id')->paginate($request->pageSize ?? 50);
+        $httpRequests = HttpRequest::latest('id');
         
         if ($request->has('from_date') && $request->has('to_date')) {
             
@@ -33,7 +33,11 @@ class HttpRequestController extends Controller
 
             $viewData['totalVisits'] = HttpRequest::whereBetween('created_at', [ $request->from, $request->to])
                     ->count();
+            
+            $httpRequests = $httpRequests->whereBetween('created_at', [ $request->from, $request->to]);
         }
+
+        $viewData['httpRequests'] = $httpRequests->paginate($request->pageSize ?? 50);
  
         return view('http-requests.index', $viewData );
     }

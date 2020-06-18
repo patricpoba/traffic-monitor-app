@@ -40,7 +40,7 @@
                         <small>Total Visits: {{ $totalVisits }} Unique IPs : {{ $uniqueIpsCount }}</small>  <br />
 
                         @foreach($urlVisistCount as $urlVisit)
-                            <small>{{ $urlVisit->url_visit_count }} visit @ {{ $urlVisit->url }} </small> <br />
+                            <small>{{ $urlVisit->url_visit_count }} visits @ {{ $urlVisit->url }} </small> <br />
                         @endforeach 
                     @endif
                 </div>

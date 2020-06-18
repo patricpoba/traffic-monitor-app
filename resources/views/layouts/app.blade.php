@@ -32,7 +32,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -66,7 +66,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a id="navbarDropdown" class="nav-link" href="{{ route('home') }}" > Traffic</a> 
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('home') }}" > Incoming Traffic</a> 
                             </li>
 
                             <li class="nav-item dropdown">
