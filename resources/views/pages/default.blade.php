@@ -15,6 +15,11 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
+
+                <div class="card-body"> 
+                    <img src="/images/office.png?v={{ time() }}" alt="" class="rounded float-left" style="width: 30%;">
+                    <img src="/images/birthday.jpg?v={{ time() }}" alt="" class="rounded float-right" style="width: 30%;"> 
+                </div>
             </div>
         </div>
     </div>
